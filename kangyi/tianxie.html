@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<head>
+    <meta charset="UTF-8">
+    <title>信息填写</title>
+</head>
+<body>
+    <div class="hengfang" style="margin-top: 20vw;width: 90vw;margin-left: 5vw">
+        <div style="flex: 1">编号(手机)</div>
+        <input id="bianhao" type="number" style="flex:3"/>
+    </div>
+    <div class="hengfang" style="margin-top: 3vw;width: 90vw;margin-left: 5vw">
+        <div style="flex: 1">姓名</div>
+        <input id="xingming" type="text" style="flex:3"/>
+    </div>
+    <div class="hengfang" style="margin-top: 3vw;width: 90vw;margin-left: 5vw">
+        <div  style="flex: 1">手机号</div>
+        <input id="shouji" type="number" style="flex:3"/>
+    </div>
+    <div class="hengfang" style="margin-top: 3vw;width: 90vw;margin-left: 5vw">
+        <div style="flex: 1">身份证号</div>
+        <input id="shenfenzheng" type="number" style="flex:3"/>
+    </div>
+    <div class="hengfang" style="margin-top: 3vw;width: 90vw;margin-left: 5vw">
+        <div style="flex: 1">户籍地址</div>
+        <input id="huji" type="text" style="flex:3"/>
+    </div>
+    <div class="hengfang" style="margin-top: 3vw;width: 90vw;margin-left: 5vw">
+        <div style="flex: 1">暂住地址</div>
+        <input id="zanzhu"  type="text" style="flex:3"/>
+    </div>
+    <div class="hengfang" style="margin-top: 3vw;width: 90vw;margin-left: 5vw">
+        <div style="flex: 1">房东手机</div>
+        <input id="fangdong" type="number" style="flex:3"/>
+    </div>
+
+    <button onclick="tijiao()" class="huxing_quan beijing_hong" style="width: 90%;margin-top: 5vw;margin-left: 5vw">提交</button>
+
+</body>
+
+
+<style>
+
+    .beijing_bai{
+        background: #FFFFFF;
+    }
+    .beijing_hui{
+        background: #F1F1F1;
+    }
+    .beijing_hong{
+        background: #ff0000;
+    }
+    .hengfang{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .cengji_1{
+        z-index: 1;
+    }
+    .cengji_2{
+        z-index: 2;
+    }
+    .cengji_3{
+        z-index: 3;
+    }
+    .cengji_4{
+        z-index: 4;
+    }
+    .cengji_5{
+        z-index: 5;
+    }
+
+    .dingwei_juedui{
+        position: absolute;
+    }
+    .dingwei_xiangdui{
+        position:relative;
+    }
+
+    .huxing_you{
+        border-radius:0 15px 15px 0;
+    }
+    .huxing_quan{
+        border-radius:15px 15px 15px 15px;
+    }
+    .huxing_quan_mini{
+        border-radius:5px 5px 5px 5px;
+    }
+    .huxing_zuo{
+        border-radius: 15px 0 0 15px;
+    }
+    .huxing_xia{
+        border-radius:0 0 15px 15px;
+    }
+
+    .huxing_shang{
+        border-radius:15px 15px 0 0;
+    }
+
+    .yinying{
+        box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.1);
+    }
+
+    .kuang{
+        border-style:solid;
+        border-width:1px;
+        border-color: #d6ccd3;
+    }
+
+    .fudong_zuo{
+        float:left;
+    }
+    .fudong_you{
+        float:right;
+    }
+
+    .weizhi_1{
+        flex: 1;
+    }
+    .weizhi_2{
+        flex: 2;
+    }
+    .weizhi_3{
+        flex: 3;
+    }
+    .weizhi_4{
+        flex: 4;
+    }
+    .weizhi_5{
+        flex: 5;
+    }
+    .weizhi_6{
+        flex: 6;
+    }
+    .weizhi_7{
+        flex: 7;
+    }
+    .weizhi_8{
+        flex: 8;
+    }
+    .weizhi_9{
+        flex: 9;
+    }
+    .weizhi_10{
+        flex: 10;
+    }
+    .wenben_zhong{
+        text-align: center;
+    }
+
+    .dianji_touguo{
+        pointer-events: none;
+    }
+
+    .wenben_huanhang{
+        word-wrap: break-word;
+        word-break: break-all;
+        white-space: pre-line;
+    }
+
+
+    .ziti_kuan1{
+        font-weight: 100;
+    }
+
+    .ziti_kuan2{
+        font-weight: 200;
+    }
+    .ziti_kuan3{
+        font-weight: 300;
+    }
+    .ziti_kuan4{
+        font-weight: 400;
+    }
+    .ziti_kuan5{
+        font-weight: 500;
+    }
+    .ziti_kuan6{
+        font-weight: 600;
+    }
+    .ziti_kuan7{
+        font-weight: 700;
+    }
+    .ziti_kuan8{
+        font-weight: 800;
+    }
+    .ziti_kuan9{
+        font-weight: 900;
+    }
+
+    .jiumi_lan{
+        color: #4b95e4;
+    }
+    .jiumi_hong{
+        color: #eb021a;
+    }
+    .jiumi_hui{
+        color: #9c9c9c;
+    }
+
+    .dibu{
+        position:fixed;
+        bottom:0px;
+    }
+</style>
+<script>
+    function tijiao() {
+        var post_bianhao = document.getElementById('bianhao').value
+        var post_xingming = document.getElementById('xingming').value
+        var post_shouji = document.getElementById('shouji').value
+        var post_shenfenzheng = document.getElementById('shenfenzheng').value
+        var post_huji = document.getElementById('huji').value
+        var post_zanzhu = document.getElementById('zanzhu').value
+        var post_fangdong = document.getElementById('fangdong').value
+
+        if (post_bianhao==''){
+            alert('请输入编号')
+            return
+        }
+        if (post_xingming==''){
+            alert('请输入姓名')
+            return
+        }
+        if (post_shouji==''){
+            alert('请输入手机号')
+            return
+        }
+        if (post_shenfenzheng==''){
+            alert('请输入身份证号')
+            return
+        }
+        if (post_huji==''){
+            alert('请输入户籍')
+            return
+        }
+        if (post_zanzhu==''){
+            alert('请输入暂住地址')
+            return
+        }
+        if (post_fangdong==''){
+            alert('请输入房东手机')
+            return
+        }
+
+        var qingqiu= "post_bianhao="+post_bianhao
+            +"&post_xingming="+post_xingming
+            +"&post_shouji="+post_shouji
+            +"&post_shenfenzheng="+post_shenfenzheng
+            +"&post_huji="+post_huji
+            +"&post_zanzhu="+post_zanzhu
+            +"&post_fangdong="+post_fangdong;
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                alert(this.responseText)
+            }
+        };
+        xmlhttp.open("POST", "renyuan_tijiao.php" , true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send(qingqiu);
+    }
+
+
+
+</script>
+
+</html>
